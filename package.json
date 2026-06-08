@@ -1,0 +1,33 @@
+{
+  "name": "matchlab-world-cup-simulator",
+  "version": "0.1.0",
+  "private": false,
+  "description": "MatchLab is a mobile-first World Cup match simulator for explainable football scenario analysis.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "start": "vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "vite": "^7.2.7",
+    "typescript": "^5.9.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3"
+  },
+  "keywords": [
+    "matchlab",
+    "world-cup",
+    "football",
+    "simulation",
+    "monte-carlo",
+    "xiaohongshu"
+  ],
+  "license": "MIT"
+}

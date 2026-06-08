@@ -1,0 +1,512 @@
+:root {
+  --bg: #0d241d;
+  --bg-soft: #15352c;
+  --card: #fffdf7;
+  --card-muted: #f3f0e6;
+  --ink: #13231d;
+  --muted: #68746d;
+  --line: #ded8c9;
+  --accent: #f4c95d;
+  --accent-strong: #dca82b;
+  --green: #2f7d68;
+  --danger: #d66b51;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(244, 201, 93, 0.22), transparent 34%),
+    linear-gradient(180deg, #102a22 0%, #0b1e18 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.hero {
+  display: grid;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 16px;
+  padding: 28px 4px 14px;
+  color: #fffdf7;
+}
+
+.hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(34px, 9vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 14px 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.disclaimer {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 253, 247, 0.76);
+  line-height: 1.7;
+}
+
+.card,
+.share-section {
+  border: 1px solid rgba(222, 216, 201, 0.82);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.section-heading span {
+  border-radius: 999px;
+  background: var(--card-muted);
+  padding: 7px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 12px;
+}
+
+input[type="range"] {
+  accent-color: var(--accent-strong);
+}
+
+.selector-grid,
+.team-grid,
+.control-grid,
+.form-grid,
+.xg-grid,
+.status-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.selector-grid,
+.team-grid,
+.control-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.team-card {
+  overflow: hidden;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.team-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.team-header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.team-header strong {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: var(--bg-soft);
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.bar-list,
+.slider-list,
+.factor-block ol,
+.share-card ol {
+  display: grid;
+  gap: 10px;
+}
+
+.bar-row,
+.slider-row {
+  display: grid;
+  grid-template-columns: 86px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.bar-row span,
+.slider-row span {
+  color: var(--muted);
+}
+
+.bar-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--card-muted);
+}
+
+.bar-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+}
+
+.bar-track i.risk {
+  background: linear-gradient(90deg, var(--accent), var(--danger));
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.note-list li {
+  border-radius: 999px;
+  background: var(--card-muted);
+  padding: 7px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.preset-row button {
+  min-height: 34px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: #fffdf7;
+  padding: 0 11px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.slider-row.wide {
+  grid-template-columns: 116px 1fr 38px;
+}
+
+.simulate-button {
+  min-height: 54px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent), #fff0a8);
+  color: #1d261f;
+  padding: 0 18px;
+  font-size: 16px;
+  font-weight: 950;
+  box-shadow: 0 12px 30px rgba(244, 201, 93, 0.2);
+}
+
+.hero-button {
+  justify-self: start;
+}
+
+.full-width {
+  width: 100%;
+  margin: 0 0 16px;
+}
+
+.probability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.probability-card,
+.status-card,
+.xg-grid > div,
+.score-pill {
+  border-radius: 18px;
+  background: var(--card-muted);
+  padding: 13px;
+}
+
+.probability-card {
+  display: grid;
+  gap: 9px;
+}
+
+.probability-card span,
+.xg-grid span,
+.status-card span,
+.score-pill span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.probability-card strong {
+  font-size: clamp(28px, 8vw, 54px);
+  line-height: 0.95;
+}
+
+.probability-card i {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent-strong);
+}
+
+.xg-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 12px 0;
+}
+
+.xg-grid strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 28px;
+}
+
+.score-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.score-pill {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.status-card strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.factor-block {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.factor-block h3 {
+  margin: 0 0 10px;
+}
+
+.factor-block li,
+.share-card li {
+  line-height: 1.65;
+}
+
+.share-section {
+  padding: 18px;
+}
+
+.share-card {
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(244, 201, 93, 0.24), transparent 42%),
+    #fffaf0;
+  padding: 22px;
+}
+
+.share-kicker {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.share-card h2 {
+  margin: 0 0 16px;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.share-probabilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.share-probabilities div,
+.share-line {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px;
+}
+
+.share-probabilities span,
+.share-line span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.share-probabilities strong,
+.share-line strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.share-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.share-conclusion {
+  margin: 14px 0;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.55;
+}
+
+.share-card footer {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-align: right;
+}
+
+@media (min-width: 860px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .selector-grid,
+  .team-grid,
+  .control-grid,
+  .form-grid,
+  .xg-grid,
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+
+  .section-heading {
+    display: grid;
+  }
+
+  .probability-grid,
+  .share-probabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .share-line {
+    align-items: flex-start;
+  }
+}

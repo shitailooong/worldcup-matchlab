@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+world-cup-assistant-*.json
+node_modules/
+dist/
+*.tsbuildinfo
