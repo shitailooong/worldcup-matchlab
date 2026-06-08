@@ -11,6 +11,86 @@ import type {
 
 const EPSILON = 0.0001;
 
+export type WeightPresetName =
+  | "default"
+  | "starPlayer"
+  | "defenseFirst"
+  | "recentForm"
+  | "stamina"
+  | "underdog"
+  | "knockout"
+  | "penalty";
+
+export const defaultSimulationWeights: WeightSettings = {
+  overallStrength: 18,
+  recentForm: 12,
+  attackPower: 16,
+  defensePower: 15,
+  midfieldControl: 11,
+  injuryImpact: 8,
+  fatigue: 7,
+  tacticalMatchup: 12,
+  setPiece: 8,
+  goalkeeper: 9,
+  penaltyShootout: 7,
+  mentalPressure: 10,
+};
+
+export function applyPresetWeights(presetName: WeightPresetName): WeightSettings {
+  const presets: Record<WeightPresetName, WeightSettings> = {
+    default: defaultSimulationWeights,
+    starPlayer: {
+      ...defaultSimulationWeights,
+      attackPower: 20,
+      tacticalMatchup: 15,
+      overallStrength: 16,
+      mentalPressure: 12,
+    },
+    defenseFirst: {
+      ...defaultSimulationWeights,
+      defensePower: 24,
+      goalkeeper: 16,
+      attackPower: 10,
+      tacticalMatchup: 10,
+    },
+    recentForm: {
+      ...defaultSimulationWeights,
+      recentForm: 24,
+      overallStrength: 13,
+      fatigue: 9,
+      injuryImpact: 10,
+    },
+    stamina: {
+      ...defaultSimulationWeights,
+      fatigue: 18,
+      injuryImpact: 12,
+      recentForm: 15,
+    },
+    underdog: {
+      ...defaultSimulationWeights,
+      recentForm: 18,
+      tacticalMatchup: 20,
+      setPiece: 15,
+      overallStrength: 10,
+    },
+    knockout: {
+      ...defaultSimulationWeights,
+      defensePower: 18,
+      goalkeeper: 14,
+      penaltyShootout: 16,
+      mentalPressure: 18,
+    },
+    penalty: {
+      ...defaultSimulationWeights,
+      penaltyShootout: 28,
+      mentalPressure: 20,
+      goalkeeper: 14,
+      attackPower: 10,
+    },
+  };
+  return presets[presetName];
+}
+
 export function normalizeWeights(weights: WeightSettings): WeightSettings {
   const total = Object.values(weights).reduce((sum, value) => sum + Math.max(0, value), 0);
   if (total <= 0) {
@@ -55,6 +135,10 @@ export function computeModuleScores(team: TeamProfile, weights: WeightSettings):
     weightedScore,
     normalizedWeights,
   };
+}
+
+export function computeTeamRating(team: TeamProfile, weights: WeightSettings, _context: MatchContext): number {
+  return computeModuleScores(team, weights).weightedScore;
 }
 
 export function computeTacticalModifier(
